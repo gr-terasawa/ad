@@ -5,6 +5,7 @@ target/
 META-INF/
 classes/
 lib/
+.settings/
 
 ######################
 # Class Files
@@ -20,11 +21,10 @@ lib/
 ######################
 # Eclipse
 ######################
-.project
 .metadata
-.settings
 .checkstyle
 .classpath
+.project
 
 ######################
 # resources
