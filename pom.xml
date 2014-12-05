@@ -175,6 +175,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-checkstyle-plugin</artifactId>
+				<version>2.13</version>
 				<configuration>
 					<configLocation>${basedir}/config/checkstyle-configuration.xml</configLocation>
 				</configuration>
