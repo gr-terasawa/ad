@@ -25,3 +25,9 @@ lib/
 .settings
 .checkstyle
 .classpath
+
+######################
+# resources
+######################
+src/main/resources/application.properties
+src/main/resources/logback.xml
