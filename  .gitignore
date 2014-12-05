@@ -1,0 +1,27 @@
+######################
+# Directories
+######################
+target/
+META-INF/
+classes/
+lib/
+
+######################
+# Class Files
+######################
+*.class
+
+######################
+# Package Files
+######################
+*.jar
+*.war
+
+######################
+# Eclipse
+######################
+.project
+.metadata
+.settings
+.checkstyle
+.classpath
