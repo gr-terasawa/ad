@@ -32,7 +32,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
  *
  */
 @Controller
-@RequestMapping(value = "/ad")
 public class AdTruthController {
 
     private static final Logger LOG = LoggerFactory.getLogger(AdTruthController.class);

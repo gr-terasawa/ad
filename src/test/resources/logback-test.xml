@@ -1,75 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- configuration file for LogBack (slf4J implementation) See here for more 
-	details: http://gordondickens.com/wordpress/2013/03/27/sawing-through-the-java-loggers/ -->
+  details: http://gordondickens.com/wordpress/2013/03/27/sawing-through-the-java-loggers/ -->
 <configuration debug="true" scan="true" scanPeriod="30 seconds">
 
-	<property name="LoggingDir" value="C:/apache-tomcat-7.0.57/logs/" />
+  <property name="LoggingDir" value="C:/apache-tomcat-7.0.57/logs/" />
 
-	<appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+  <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
 
-		<encoder>
-			<Pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %level %logger{0} - %msg \(%file:%line\)%n</Pattern>
-		</encoder>
-		<!-- <encoder> <pattern>%-5level %logger{0} - %msg%n</pattern> </encoder> -->
-	</appender>
+    <encoder>
+      <Pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %level %logger{0} - %msg \(%file:%line\)%n</Pattern>
+    </encoder>
+    <!-- <encoder> <pattern>%-5level %logger{0} - %msg%n</pattern> </encoder> -->
+  </appender>
 
-	<appender name="INFO"
-		class="ch.qos.logback.core.rolling.RollingFileAppender">
-		<append>true</append>
-		<filter class="ch.qos.logback.classic.filter.LevelFilter">
-			<level>INFO</level>
-			<onMatch>ACCEPT</onMatch>
-			<onMismatch>DENY</onMismatch>
-		</filter>
-		<file>${LoggingDir}test.log</file>
-		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-			<fileNamePattern>${LoggingDir}history/test.%d{yyyy-MM-dd}.zip
-			</fileNamePattern>
-			<maxHistory>30</maxHistory>
-		</rollingPolicy>
-		<encoder>
-			<Pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %level %logger{0} - %msg \(%file:%line\)%n</Pattern>
-		</encoder>
-	</appender>
+  <appender name="INFO" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <append>true</append>
+    <filter class="ch.qos.logback.classic.filter.LevelFilter">
+      <level>INFO</level>
+      <onMatch>ACCEPT</onMatch>
+      <onMismatch>DENY</onMismatch>
+    </filter>
+    <file>${LoggingDir}test.log</file>
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <fileNamePattern>${LoggingDir}history/test.%d{yyyy-MM-dd}.zip
+      </fileNamePattern>
+      <maxHistory>30</maxHistory>
+    </rollingPolicy>
+    <encoder>
+      <Pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %level %logger{0} - %msg \(%file:%line\)%n</Pattern>
+    </encoder>
+  </appender>
 
-	<appender name="AD"
-		class="ch.qos.logback.core.rolling.RollingFileAppender">
-		<append>true</append>
-		<filter class="ch.qos.logback.classic.filter.LevelFilter">
-			<level>INFO</level>
-			<onMatch>ACCEPT</onMatch>
-			<onMismatch>DENY</onMismatch>
-		</filter>
-		<file>${LoggingDir}ad.log</file>
-		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-			<fileNamePattern>${LoggingDir}history/ad.%d{yyyy-MM-dd}.zip
-			</fileNamePattern>
-			<maxHistory>30</maxHistory>
-		</rollingPolicy>
-		<encoder>
-			<pattern>%d{yyyy-MMM-dd HH:mm:ss}\t%msg%n
-			</pattern>
-		</encoder>
-	</appender>
+  <appender name="AD" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <append>true</append>
+    <filter class="ch.qos.logback.classic.filter.LevelFilter">
+      <level>INFO</level>
+      <onMatch>ACCEPT</onMatch>
+      <onMismatch>DENY</onMismatch>
+    </filter>
+    <file>${LoggingDir}ad.log</file>
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <fileNamePattern>${LoggingDir}history/ad.%d{yyyy-MM-dd}.zip
+      </fileNamePattern>
+      <maxHistory>30</maxHistory>
+    </rollingPolicy>
+    <encoder>
+      <pattern>%d{yyyy-MMM-dd HH:mm:ss} %msg%n
+      </pattern>
+    </encoder>
+  </appender>
 
-	<appender name="MAIL" class="ch.qos.logback.classic.net.SMTPAppender">
-		<smtpHost>192.168.26.16</smtpHost>
-		<from>takeharu.terasawa@gmo-research.jp</from>
-		<to>takeharu.terasawa@gmo-research.jp</to>
-		<subject>test mail</subject>
-		<layout class="ch.qos.logback.classic.PatternLayout">
-			<pattern>%d{yyyy-MMM-dd HH:mm:ss.SSS} %-5level %marker %logger - %msg%n></pattern>
-		</layout>
-		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
-			<level>ERROR</level>
-		</filter>
-	</appender>
-	<!--<logger name="org.hibernate" level="debug"/> -->
-	<!-- Uncomment and add your logger here: <logger name="org.springframework.samples.service.service" 
-		level="debug"/> -->
+  <appender name="MAIL" class="ch.qos.logback.classic.net.SMTPAppender">
+    <smtpHost>192.168.26.16</smtpHost>
+    <from>takeharu.terasawa@gmo-research.jp</from>
+    <to>takeharu.terasawa@gmo-research.jp</to>
+    <subject>test mail</subject>
+    <layout class="ch.qos.logback.classic.PatternLayout">
+      <pattern>%d{yyyy-MMM-dd HH:mm:ss.SSS} %-5level %marker %logger - %msg%n</pattern>
+    </layout>
+    <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+      <level>ERROR</level>
+    </filter>
+  </appender>
+  <!--<logger name="org.hibernate" level="debug"/> -->
+  <!-- Uncomment and add your logger here: <logger name="org.springframework.samples.service.service" level="debug"/> -->
 
-	<root level="debug">
-		<appender-ref ref="console" />
-		<appender-ref ref="INFO" />
-	</root>
+  <root level="debug">
+    <appender-ref ref="console" />
+    <appender-ref ref="INFO" />
+  </root>
 </configuration>

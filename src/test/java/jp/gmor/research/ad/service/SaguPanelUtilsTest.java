@@ -2,7 +2,10 @@ package jp.gmor.research.ad.service;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
+import static org.hamcrest.core.IsInstanceOf.instanceOf;
 
+
+import org.hamcrest.core.IsInstanceOf;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -51,5 +54,14 @@ public class SaguPanelUtilsTest {
     public void monitor_idが8桁未満の場合は8桁まで左ゼロ埋めされる() throws Exception {
         assertThat(SaguPanelUtils.convertToJnMonitorID("1", "30"), is("3000000001"));
     }
+//
+//    /**
+//     * カバレッジのためにコンストラクタを呼ぶ
+//     * @throws Exception 例外
+//     */
+//    @Test
+//    public void インスタンスが生成出来る() throws Exception {
+//        assertThat(new SaguPanelUtils(), is(instanceOf(SaguPanelUtils.class)));
+//    }
 
 }

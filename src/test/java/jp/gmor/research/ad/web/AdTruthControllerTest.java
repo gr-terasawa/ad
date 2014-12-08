@@ -40,18 +40,29 @@ public class AdTruthControllerTest {
      */
     @Test
     public void AdTruthのIDの生成リクエストが正常に受付できる() throws Exception {
-        this.mockMvc.perform(get("/ad/{id}/{panel}/{country}/{deviceinfo}", 1, "2", "3", "4").accept(MediaType.TEXT_HTML))
+        this.mockMvc.perform(get("/{id}/{panel}/{country}/{deviceinfo}", 1, "2", "3", "4").accept(MediaType.TEXT_HTML))
         .andExpect(status().isOk())
         .andExpect(jsonPath("$.status").value("success"));
     }
 
     /**
-     * deviceinfoがnullの場合にはhttpステータス404が返却される
+     * deviceinfoがnullの場合にはhttpステータス404(NotFound)が返却される
      * @throws Exception 例外
      */
     @Test
-    public void AdTruthのIDの生成リクエストパラメータ不正の場合には404がかえる() throws Exception {
-        this.mockMvc.perform(get("/ad/{id}/{panel}/{country}/{deviceinfo}", 1, "2", "3", null).accept(MediaType.TEXT_HTML)).andExpect(status().isNotFound());
+    public void AdTruthのIDの生成リクエストURLが不正な場合は404がかえる() throws Exception {
+        this.mockMvc.perform(get("/{id}/{panel}/{country}/{deviceinfo}", 1, "2", "3", null).accept(MediaType.TEXT_HTML)).andExpect(status().isNotFound());
+        this.mockMvc.perform(get("/{id}/{panel}/{country}/{deviceinfo}", 1, "2", null, "4").accept(MediaType.TEXT_HTML)).andExpect(status().isNotFound());
+        this.mockMvc.perform(get("/{id}/{panel}/{country}/{deviceinfo}", 1, null, "3", "4").accept(MediaType.TEXT_HTML)).andExpect(status().isNotFound());
+        this.mockMvc.perform(get("/{id}/{panel}/{country}/{deviceinfo}", null, "2", "3", "4").accept(MediaType.TEXT_HTML)).andExpect(status().isNotFound());
     }
 
+    /**
+     * idが数値でない場合はhttpステータス400(BadRequest)が返却される
+     * @throws Exception 例外
+     */
+    @Test
+    public void idが数値でない場合は400が返る() throws Exception {
+        this.mockMvc.perform(get("/{id}/{panel}/{country}/{deviceinfo}", "A", "2", "3", "4").accept(MediaType.TEXT_HTML)).andExpect(status().isBadRequest());
+    }
 }
