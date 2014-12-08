@@ -13,7 +13,7 @@
     </filter>
     <file>${LoggingDir}info.log</file>
     <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-      <fileNamePattern>${LoggingDir}history/info.%d{yyyy-MM-dd}.zip
+      <fileNamePattern>${LoggingDir}history/info.%d{yyyy-MM-dd}.gz
       </fileNamePattern>
       <maxHistory>30</maxHistory>
     </rollingPolicy>
@@ -31,7 +31,7 @@
     </filter>
     <file>${LoggingDir}ad.log</file>
     <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-      <fileNamePattern>${LoggingDir}history/ad.%d{yyyy-MM-dd}.zip
+      <fileNamePattern>${LoggingDir}history/ad.%d{yyyy-MM-dd}.gz
       </fileNamePattern>
       <maxHistory>30</maxHistory>
     </rollingPolicy>
@@ -42,9 +42,9 @@
   </appender>
 
   <appender name="MAIL" class="ch.qos.logback.classic.net.SMTPAppender">
-    <smtpHost>192.168.26.16</smtpHost>
-    <from>takeharu.terasawa@gmo-research.jp</from>
-    <to>takeharu.terasawa@gmo-research.jp</to>
+    <smtpHost>trelay1.lo.infoq.jp</smtpHost>
+    <from>system_dev_itst@gmo-research.jp</from>
+    <to>system_dev_itst@gmo-research.jp</to>
     <subject>test mail</subject>
     <layout class="ch.qos.logback.classic.PatternLayout">
       <pattern>%d{yyyy-MMM-dd HH:mm:ss.SSS} %-5level %marker %logger - %msg%n></pattern>

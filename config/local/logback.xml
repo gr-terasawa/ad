@@ -21,7 +21,7 @@
     </filter>
     <file>${LoggingDir}info.log</file>
     <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-      <fileNamePattern>${LoggingDir}history/info.%d{yyyy-MM-dd}.zip
+      <fileNamePattern>${LoggingDir}history/info.%d{yyyy-MM-dd}.gz
       </fileNamePattern>
       <maxHistory>30</maxHistory>
     </rollingPolicy>
@@ -39,7 +39,7 @@
     </filter>
     <file>${LoggingDir}ad.log</file>
     <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-      <fileNamePattern>${LoggingDir}history/ad.%d{yyyy-MM-dd}.zip
+      <fileNamePattern>${LoggingDir}history/ad.%d{yyyy-MM-dd}.gz
       </fileNamePattern>
       <maxHistory>30</maxHistory>
     </rollingPolicy>
