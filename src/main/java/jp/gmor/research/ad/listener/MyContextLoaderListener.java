@@ -21,9 +21,8 @@ public class MyContextLoaderListener
 
     @Override
     public void contextDestroyed(ServletContextEvent event) {
-        if ( LoggerFactory.getILoggerFactory() instanceof LoggerContext ) {
-            ((LoggerContext) LoggerFactory.getILoggerFactory() ).stop();
-        }
+        LoggerContext loggerContext = (LoggerContext)LoggerFactory.getILoggerFactory();
+        loggerContext.stop();
         super.contextDestroyed(event);
     }
 }
