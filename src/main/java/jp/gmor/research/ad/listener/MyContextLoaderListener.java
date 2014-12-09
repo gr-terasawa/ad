@@ -7,6 +7,9 @@ package jp.gmor.research.ad.listener;
 
 import javax.servlet.ServletContextEvent;
 
+import jp.gmor.research.ad.web.AdTruthController;
+
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.context.ContextLoaderListener;
 
@@ -19,8 +22,11 @@ import ch.qos.logback.classic.LoggerContext;
 public class MyContextLoaderListener
         extends ContextLoaderListener {
 
+    private static final Logger LOG = LoggerFactory.getLogger(MyContextLoaderListener.class);
+
     @Override
     public void contextDestroyed(ServletContextEvent event) {
+        LOG.debug("contextDestroyed start");
         LoggerContext loggerContext = (LoggerContext)LoggerFactory.getILoggerFactory();
         loggerContext.stop();
         super.contextDestroyed(event);
