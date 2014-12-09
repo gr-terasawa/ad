@@ -49,27 +49,11 @@
     </encoder>
   </appender>
 
-  <appender name="MAIL" class="ch.qos.logback.classic.net.SMTPAppender">
-    <smtpHost>192.168.26.16</smtpHost>
-    <from>takeharu.terasawa@gmo-research.jp</from>
-    <to>takeharu.terasawa@gmo-research.jp</to>
-    <subject>test mail</subject>
-    <layout class="ch.qos.logback.classic.PatternLayout">
-      <pattern>%d{yyyy-MMM-dd HH:mm:ss.SSS} %-5level %marker %logger - %msg%n</pattern>
-    </layout>
-    <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
-      <level>ERROR</level>
-    </filter>
-  </appender>
-  <!--<logger name="org.hibernate" level="debug"/> -->
-  <!-- Uncomment and add your logger here: <logger name="org.springframework.samples.service.service" level="debug"/> -->
-
   <logger name="jp.gmor.research.ad" level="debug">
     <appender-ref ref="AD" />
   </logger>
   <root level="debug">
     <appender-ref ref="console" />
     <appender-ref ref="INFO" />
-    <appender-ref ref="MAIL" />
   </root>
 </configuration>

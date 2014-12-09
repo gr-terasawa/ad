@@ -56,12 +56,12 @@
 
   <appender name="AD_ASYNC" class="ch.qos.logback.classic.AsyncAppender">
     <appender-ref ref="AD" />
-    <discardingThreshold>5</discardingThreshold>
+    <discardingThreshold>25</discardingThreshold>
   </appender>
 
   <appender name="INFO_ASYNC" class="ch.qos.logback.classic.AsyncAppender">
     <appender-ref ref="INFO" />
-    <discardingThreshold>5</discardingThreshold>
+    <discardingThreshold>25</discardingThreshold>
   </appender>
 
   <logger name="jp.gmor.research.ad" level="DEBUG">

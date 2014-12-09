@@ -7,26 +7,24 @@ package jp.gmor.research.ad.listener;
 
 import javax.servlet.ServletContextEvent;
 
-import jp.gmor.research.ad.web.AdTruthController;
-
-import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.context.ContextLoaderListener;
 
 import ch.qos.logback.classic.LoggerContext;
 
 /**
+ * logbackのAsyncAppenderの停止処理を行うようcontextDestroyedをオーバーライドします
  * @author usr160056
  * @since 2014/12/09
  */
 public class MyContextLoaderListener
         extends ContextLoaderListener {
 
-    private static final Logger LOG = LoggerFactory.getLogger(MyContextLoaderListener.class);
-
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void contextDestroyed(ServletContextEvent event) {
-        LOG.debug("contextDestroyed start");
         LoggerContext loggerContext = (LoggerContext)LoggerFactory.getILoggerFactory();
         loggerContext.stop();
         super.contextDestroyed(event);
