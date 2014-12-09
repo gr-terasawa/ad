@@ -56,14 +56,12 @@
 
   <appender name="AD_ASYNC" class="ch.qos.logback.classic.AsyncAppender">
     <appender-ref ref="AD" />
-    <!-- discardingThreashold == 0 means it won't drop TRACE, DEBUG and INFO level log even when the remaining capacity of blocking queue is less than 20% -->
-    <discardingThreshold>0</discardingThreshold>
+    <discardingThreshold>5</discardingThreshold>
   </appender>
 
   <appender name="INFO_ASYNC" class="ch.qos.logback.classic.AsyncAppender">
     <appender-ref ref="INFO" />
-    <!-- discardingThreashold == 0 means it won't drop TRACE, DEBUG and INFO level log even when the remaining capacity of blocking queue is less than 20% -->
-    <discardingThreshold>0</discardingThreshold>
+    <discardingThreshold>5</discardingThreshold>
   </appender>
 
   <logger name="jp.gmor.research.ad" level="DEBUG">
