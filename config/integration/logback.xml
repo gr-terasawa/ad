@@ -40,7 +40,7 @@
     <smtpHost>trelay1.lo.infoq.jp</smtpHost>
     <from>system_dev_itst@gmo-research.jp</from>
     <to>system_dev_itst@gmo-research.jp</to>
-    <subject>test mail</subject>
+    <subject>error [adt]</subject>
     <layout class="ch.qos.logback.classic.PatternLayout">
       <pattern>%d{yyyy-MMM-dd HH:mm:ss.SSS} %-5level %marker %logger - %msg%n></pattern>
     </layout>
@@ -51,20 +51,17 @@
 
   <appender name="AD_ASYNC" class="ch.qos.logback.classic.AsyncAppender">
     <appender-ref ref="AD" />
-    <discardingThreshold>25</discardingThreshold>
   </appender>
 
   <appender name="FILE_ASYNC" class="ch.qos.logback.classic.AsyncAppender">
     <appender-ref ref="FILE" />
-    <discardingThreshold>25</discardingThreshold>
   </appender>
 
   <logger name="jp.gmor.research.ad" level="debug">
     <appender-ref ref="AD_ASYNC" />
   </logger>
-  <logger name="org.springframework" level="info">
-    <appender-ref ref="FILE_ASYNC" />
-  </logger>
+
+  <logger name="org.springframework" level="info" />
 
   <root level="degug">
     <appender-ref ref="FILE_ASYNC" />
