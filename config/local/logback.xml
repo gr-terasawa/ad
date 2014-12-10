@@ -49,10 +49,10 @@
     </encoder>
   </appender>
 
-  <logger name="jp.gmor.research.ad" level="debug">
+  <logger name="jp.gmor.research.ad.web.AdTruthController" level="debug">
     <appender-ref ref="AD" />
   </logger>
-  <root level="debug">
+  <root level="trace">
     <appender-ref ref="console" />
     <appender-ref ref="INFO" />
   </root>
