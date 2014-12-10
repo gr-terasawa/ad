@@ -261,6 +261,7 @@
       </activation>
       <properties>
         <env>integration</env>
+      <maven.test.skip>true</maven.test.skip>
       </properties>
     </profile>
     <profile>
@@ -270,6 +271,7 @@
       </activation>
       <properties>
         <env>stage</env>
+        <maven.test.skip>true</maven.test.skip>
       </properties>
     </profile>
     <profile>
@@ -279,6 +281,7 @@
       </activation>
       <properties>
         <env>product</env>
+        <maven.test.skip>true</maven.test.skip>
       </properties>
     </profile>
   </profiles>
